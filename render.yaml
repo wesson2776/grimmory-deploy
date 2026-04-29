@@ -8,13 +8,13 @@ services:
     envVars:
       - key: TZ
         value: Asia/Shanghai
-    disk:
-      name: grimmory-data
-      mountPath: /data
-      sizeGB: 1
+      - key: DATABASE_URL
+        fromDatabase:
+          name: grimmory-db
+          property: connectionString
 
 databases:
   - name: grimmory-db
     databaseName: grimmory
-    user: postgres
+    user: grimmory_user
     plan: free

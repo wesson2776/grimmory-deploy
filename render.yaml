@@ -2,19 +2,19 @@ services:
   - type: web
     name: grimmory
     runtime: image
-    repo: https://github.com/你的用户名/你的仓库名
     image:
       url: ghcr.io/grimmory-tools/grimmory:latest
+    plan: free
     envVars:
       - key: TZ
         value: Asia/Shanghai
     disk:
       name: grimmory-data
       mountPath: /data
-      sizeGB: 10
-    healthCheckPath: /
+      sizeGB: 1
 
 databases:
   - name: grimmory-db
     databaseName: grimmory
     user: postgres
+    plan: free
